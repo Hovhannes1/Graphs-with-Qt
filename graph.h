@@ -1,7 +1,6 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-
 #include <QObject>
 #include <QPainter>
 #include <QPainterPath>

@@ -31,7 +31,21 @@ void GraphEdge::draw(QPainter &painter)
         myPath.moveTo(this->from->position);
         myPath.quadTo(curvePoint, this->dest->position);
 //        painter.drawLine(curvePoint - QPointF(10, 10), curvePoint);
-        painter.strokePath(myPath, redPen);
+
+        qreal arrowSize = 20;
+
+        QLineF line(this->dest->position, this->from->position);
+        double angle = std::atan2(-line.dy(), line.dx());
+
+        QPointF arrowP1 = arrowTipPoint + QPointF(sin(angle + M_PI / 4) * arrowSize,
+                                              cos(angle + M_PI / 4) * arrowSize);
+        QPointF arrowP2 = arrowTipPoint + QPointF(sin(angle + M_PI - M_PI / 4) * arrowSize,
+                                              cos(angle + M_PI - M_PI / 4) * arrowSize);
+
+        painter.drawLine(QLineF(arrowTipPoint, arrowP1));
+        painter.drawLine(QLineF(arrowTipPoint, arrowP2));
+
+        painter.strokePath(myPath, this->selected ? bluePen : redPen);
     }
 }
 
@@ -51,10 +65,26 @@ void GraphEdge::calculateCurvePoint()
     // to determine the 'height' of the curving point
     qreal cX = 60 * (-1 * (dY / distance)) + mX;
     qreal cY = 60 * (dX / distance) + mY;
+
+    qreal aX = 30 * (-1 * (dY / distance)) + mX;
+    qreal aY = 30 * (dX / distance) + mY;
+
+    arrowTipPoint = QPointF(aX, aY);
     curvePoint = QPointF(cX, cY);
+}
+
+bool GraphEdge::deleteEdge(GraphVertex *selectedVertex)
+{
+    if (this->from == selectedVertex || this->dest == selectedVertex) {
+        return true;
+    }
+    return false;
 }
 
 bool GraphEdge::isIn(const QPointF &pos) const
 {
+    if (std::pow(this->arrowTipPoint.x()-pos.x(), 2) + std::pow(this->arrowTipPoint.y()-pos.y(), 2) < 20*20) {
+        return true;
+    }
     return false;
 }

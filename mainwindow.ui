@@ -33,6 +33,7 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionLoad"/>
    </widget>
    <widget class="QMenu" name="menuCreate">
     <property name="title">
@@ -53,6 +54,11 @@
   <action name="actionEdge">
    <property name="text">
     <string>Edge</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>Load</string>
    </property>
   </action>
  </widget>

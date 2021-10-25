@@ -6,6 +6,11 @@ GraphVertex::GraphVertex(const QPointF &_position): id(next_id++), position(_pos
 
 }
 
+GraphVertex::GraphVertex(const int &_id, const QPointF &_position): id(_id), position(_position)
+{
+
+}
+
 void drawInnerText(QPainter & painter, qreal x, qreal y, Qt::Alignment flags,
                    const QString & text)
 {
@@ -26,7 +31,9 @@ void GraphVertex::draw(QPainter &painter)
     QBrush greenBrush(Qt::green,Qt::SolidPattern);
     QBrush yellowBrush(Qt::yellow,Qt::SolidPattern);
     QPen blackPen(Qt::black);
+    QPen bluePen(Qt::blue);
     blackPen.setWidth(2);
+    bluePen.setWidth(4);
 
     QFont serifFont("Times", 16, QFont::Normal);
     painter.setFont(serifFont);
@@ -34,13 +41,12 @@ void GraphVertex::draw(QPainter &painter)
 
     if (this->selected) {
         painter.setBrush(yellowBrush);
-
-//        QSvgRenderer svgr("/path/to/img.svg");
+        painter.setPen(bluePen);
     } else {
         painter.setBrush(greenBrush);
+        painter.setPen(blackPen);
     }
 
-    painter.setPen(blackPen);
     painter.drawEllipse(position.x() - radius, position.y() - radius, 2 * radius, 2 * radius);
     drawInnerText(painter, position.x(), position.y() + 2, Qt::AlignHCenter | Qt::AlignVCenter, QString::number(this->id));
 }

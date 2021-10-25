@@ -13,14 +13,19 @@ public:
     virtual bool isIn(const QPointF &pos) const override;
 
     void calculateCurvePoint();
+    bool deleteEdge(GraphVertex *selectedVertex);
 
-    QPointF curvePoint;
+    GraphVertex *getFromVertex() {return from;}
+    GraphVertex *getDestVertex() {return dest;}
 
     bool selected = false;
 
 private:
     GraphVertex *from;
     GraphVertex *dest;
+
+    QPointF curvePoint;
+    QPointF arrowTipPoint;
 };
 
 #endif // GRAPHEDGE_H

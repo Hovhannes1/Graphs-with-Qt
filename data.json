@@ -1,0 +1,146 @@
+{
+    "edges": [
+        {
+            "dest": 3,
+            "from": 1
+        },
+        {
+            "dest": 1,
+            "from": 2
+        },
+        {
+            "dest": 3,
+            "from": 3
+        },
+        {
+            "dest": 2,
+            "from": 5
+        },
+        {
+            "dest": 3,
+            "from": 2
+        },
+        {
+            "dest": 5,
+            "from": 4
+        },
+        {
+            "dest": 7,
+            "from": 3
+        },
+        {
+            "dest": 6,
+            "from": 1
+        },
+        {
+            "dest": 8,
+            "from": 6
+        },
+        {
+            "dest": 8,
+            "from": 7
+        },
+        {
+            "dest": 11,
+            "from": 12
+        },
+        {
+            "dest": 9,
+            "from": 4
+        },
+        {
+            "dest": 10,
+            "from": 9
+        },
+        {
+            "dest": 11,
+            "from": 9
+        },
+        {
+            "dest": 12,
+            "from": 10
+        },
+        {
+            "dest": 13,
+            "from": 11
+        },
+        {
+            "dest": 10,
+            "from": 10
+        },
+        {
+            "dest": 4,
+            "from": 11
+        },
+        {
+            "dest": 11,
+            "from": 13
+        },
+        {
+            "dest": 1,
+            "from": 8
+        },
+        {
+            "dest": 2,
+            "from": 3
+        },
+        {
+            "dest": 4,
+            "from": 2
+        }
+    ],
+    "vertices": [
+        {
+            "id": 1,
+            "position": "565,357"
+        },
+        {
+            "id": 2,
+            "position": "349,275"
+        },
+        {
+            "id": 3,
+            "position": "566,42"
+        },
+        {
+            "id": 4,
+            "position": "240,44"
+        },
+        {
+            "id": 5,
+            "position": "397,79"
+        },
+        {
+            "id": 6,
+            "position": "699,337"
+        },
+        {
+            "id": 7,
+            "position": "698,114"
+        },
+        {
+            "id": 8,
+            "position": "726,216"
+        },
+        {
+            "id": 9,
+            "position": "156,193"
+        },
+        {
+            "id": 10,
+            "position": "68,304"
+        },
+        {
+            "id": 11,
+            "position": "192,335"
+        },
+        {
+            "id": 12,
+            "position": "83,427"
+        },
+        {
+            "id": 13,
+            "position": "250,463"
+        }
+    ]
+}
